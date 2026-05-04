@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import css from "./SidebarNotes.module.css";
 
@@ -18,18 +20,18 @@ export default function SidebarNotes({ currentTag }: SidebarNotesProps) {
 
   return (
     <ul className={css.menuList}>
-      {tags.map((tag) => (
-        <li key={tag.value} className={css.menuItem}>
-          <Link
-            href={`/notes/filter/${tag.slug}`}
-            className={`${css.menuLink} ${
-              safeTag === tag.value ? css.active : ""
-            }`}
-          >
-            {tag.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
+        {tags.map((tag) => (
+          <li key={tag.value} className={css.menuItem}>
+            <Link
+              href={`/notes/filter/${tag.slug}`}
+              className={`${css.menuLink} ${
+                safeTag === tag.value ? css.active : ""
+              }`}
+            >
+              {tag.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
   );
 }
